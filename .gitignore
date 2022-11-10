@@ -1,1 +1,3 @@
 /Users/user/Launch/JS101/lesson_2/node_modules
+*.json
+*node_modules/
