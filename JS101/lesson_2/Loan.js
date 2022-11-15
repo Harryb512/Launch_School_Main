@@ -62,10 +62,11 @@ while (true) {
   prompt('Please enter length of loan (years)');
   let durationYears = readline.question();
 
-  while (Number(durationYears) <= 0) {
-    prompt('Please enter a valid loan term'); //validate
+  while (Number(durationYears) <= 0 || Number.isNaN(Number(durationYears))) {
+    prompt('Please enter a valid loan term');
     durationYears = readline.question();
   }
+
   let durationMonths = Number(durationYears) * 12;
   let monthlyPayment = loanAmount *
     (monthlyInterest / (1 - Math.pow((1 + monthlyInterest), (-durationMonths))));
@@ -81,5 +82,4 @@ while (true) {
   if (continueWorking === 'n') {
     break;
   }
-
 }
