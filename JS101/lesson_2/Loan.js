@@ -48,6 +48,7 @@ while (true) {
   }
 
   let monthlyInterest;
+
   if (aprFormat === '1') {
     monthlyInterest = Number(annualInterest) / 100 / 12;
   } else if (aprFormat === '2') {
@@ -66,9 +67,12 @@ while (true) {
     prompt('Please enter a valid number');
     durationYears = readline.question();
   }
+
   let durationMonths = Number(durationYears) * 12;
+
   let monthlyPayment = loanAmount *
-    (monthlyInterest / (1 - Math.pow((1 + monthlyInterest), (-durationMonths))));
+    (monthlyInterest /
+      (1 - Math.pow((1 + monthlyInterest), (-durationMonths))));
 
   prompt(`Your monthly payment is : $${monthlyPayment.toFixed(2)}`);
 
