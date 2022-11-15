@@ -22,9 +22,9 @@ function invalidNumber(num) {
 while (true) {
   prompt('Hello, Welcome to the Loan Calculator\n-------------------------');
 
-  let loanAmount;
+
   prompt('Please enter the total amount of the loan');
-  loanAmount = readline.question();
+  let loanAmount = readline.question();
 
   while (invalidNumber(loanAmount)) {
     prompt('Please enter a valid number');
