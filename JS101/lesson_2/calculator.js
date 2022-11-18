@@ -62,5 +62,5 @@ do {
     prompt('Please enter either y or n');
     continueMath = readline.question();
   }
-} while (continueMath === 'y')
+} while (continueMath === 'y');
 
