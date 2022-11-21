@@ -1,14 +1,14 @@
 const readline = require('readline-sync');
-const VALID_CHOICES = ['rock', 'paper', 'scissors', 'spock', 'lizard']; // create object prototype of valid choices and add 'r' 's' 'p' 'l', keep in mind inheritance
+const VALID_CHOICES = ['rock', 'paper', 'scissors', 'spock', 'lizard'];
 function prompt(msg) {
   console.log(`=> ${msg}`);
 }
 let compCounter = 0;
 let userCounter = 0;
 
-
 while (true) {
-  prompt(`Please choose either ${VALID_CHOICES.join(', ')}`);
+  prompt(`Please choose either ${VALID_CHOICES.join(', ')} 
+  ------>\nOr enter r for rock, p for paper, l for lizard, s for spock/scissors (clarification required)`);
   let userChoice = readline.question().toLowerCase();
   switch (userChoice) {
     case 'r': userChoice = 'rock';
@@ -19,16 +19,14 @@ while (true) {
       break;
     case 's': while (true) {
       prompt('Please specify. Choose either 1 or 2\n1)spock\n2)scissors');
-      let sClarify = readline.question();
-      if (sClarify === '1') {
+      let sClarified = readline.question();
+      if (sClarified === '1') {
         userChoice = 'spock';
-      } else if (sClarify === '2') {
+        break;
+      } else if (sClarified === '2') {
         userChoice = 'scissors';
-      } else {
-        prompt('Please choose either 1 or 2');//create validation
-        sClarify = readline.question();
+        break;
       }
-      break;
     }
   }
 
@@ -78,14 +76,28 @@ while (true) {
   } else {
     console.log(`You chose : ${userChoice}.  The computer chose : ${computerChoice}. You have won ${userCounter} games.  The computer has won ${compCounter} games.`);
   }
-  prompt('Would you like to play again? y/n');
-  let answer = readline.question().toLowerCase();
-  while (answer !== 'n' && answer !== 'y') {
-    prompt('Please enter "y" or "n".');
-    answer = readline.question().toLowerCase();
-  }
-  if (answer !== 'y') {
+  if (userCounter === 3) {
+    console.log('-----You won!------');
+    break;
+  } else if (compCounter === 3) {
+    console.log('-------Computer won!------');
     break;
   }
-
+  if ((userCounter !== 3) && (compCounter !== 3)) {
+    prompt('Would you like to play again? y/n');
+    let answer = readline.question().toLowerCase();
+    if (answer === 'n') {
+      console.clear();
+      break;
+    }
+    while (answer !== 'n' && answer !== 'y') {
+      prompt('Please enter "y" or "n".');
+      answer = readline.question().toLowerCase();
+    }
+    if (answer === 'n') {
+      console.clear();
+      break;
+    }
+  }
 }
+

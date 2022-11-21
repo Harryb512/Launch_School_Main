@@ -50,7 +50,8 @@ Start
     return index of 3rd occurence 
 
     End
-5. A function that takes two arrays of numbers and returns the result of merging the arrays.
+5. A function that takes two arrays of numbers
+ and returns the result of merging the arrays.
 
 Start
 
@@ -62,3 +63,4 @@ Start
   return variable 
 
   End
+  */
