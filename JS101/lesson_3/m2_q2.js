@@ -7,4 +7,4 @@ console.log(munstersDescription.split('').map(function (char) {
     return char.toUpperCase();
   }
 
-}).join(''));
+}).join(''));~
